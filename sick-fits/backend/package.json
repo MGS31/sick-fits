@@ -44,11 +44,13 @@
     "@keystonejs/server-side-graphql-client": "^1.1.2",
     "@types/nodemailer": "^6.4.0",
     "dotenv": "^8.2.0",
+    "n": "^9.0.1",
     "next": "^10.0.5",
     "nodemailer": "^6.4.17",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
-    "stripe": "^8.130.0"
+    "stripe": "^8.130.0",
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.9.0",
