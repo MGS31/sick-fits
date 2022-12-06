@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
+import Router from 'next/router';
 import DisplayError from './ErrorMessage';
 import { ALL_PRODUCTS_QUERY } from './Products';
 import useForm from '../lib/useForm';
@@ -49,6 +50,9 @@ export default function CreateProduct() {
         // submit the input fields to the backend.
         const res = await createProduct();
         clearForm();
+        Router.push({
+          pathname: `/product/${res.data.createProduct.id}`,
+        });
       }}>
       <DisplayError error={error} />
       <fieldset disabled={loading} aria-busy={loading}>
