@@ -1,3 +1,3 @@
-export default function IndexPage() {
-  return <p>Hello!</p>;
-}
+// imports the default from the product page and exports it on the index page.
+
+export { default } from './products';
