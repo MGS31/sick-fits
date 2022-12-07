@@ -53,7 +53,8 @@ export default function CreateProduct() {
         Router.push({
           pathname: `/product/${res.data.createProduct.id}`,
         });
-      }}>
+      }}
+    >
       <DisplayError error={error} />
       <fieldset disabled={loading} aria-busy={loading}>
         <label htmlFor="image">

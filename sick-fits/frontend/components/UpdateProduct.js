@@ -1,3 +1,3 @@
-export default function UpdateProduct() {
-  return <p>Update</p>;
+export default function UpdateProduct({ id }) {
+  return <p>Update {id}</p>;
 }
