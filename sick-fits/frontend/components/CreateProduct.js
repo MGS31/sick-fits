@@ -90,7 +90,7 @@ export default function CreateProduct() {
             id="description"
             name="description"
             placeholder="description"
-            value={inputs.price}
+            value={inputs.description}
             onChange={handleChange}
           />
         </label>
