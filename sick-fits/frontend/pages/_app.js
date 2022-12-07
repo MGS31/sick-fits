@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import NProgress from 'nprogress';
 import Router from 'next/router';
 import { ApolloProvider } from '@apollo/client';
@@ -27,13 +26,7 @@ MyApp.getInitialProps = async function ({ Component, ctx }) {
     pageProps = await Component.getInitialProps(ctx);
   }
   pageProps.query = ctx.query;
-  return pageProps;
-};
-
-MyApp.propTypes = {
-  Component: PropTypes.any,
-  pageProps: PropTypes.any,
-  apollo: PropTypes.any,
+  return { pageProps };
 };
 
 export default withData(MyApp);
