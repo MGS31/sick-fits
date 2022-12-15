@@ -4,12 +4,18 @@ import {
   withItemData,
   statelessSessions,
 } from '@keystone-next/keystone/session';
+import { permissionsList } from './schemas/fields';
+import { Role } from './schemas/Role';
+import { OrderItem } from './schemas/OrderItem';
+import { Order } from './schemas/Order';
+import { CartItem } from './schemas/CartItem';
 import { ProductImage } from './schemas/ProductImage';
 import { Product } from './schemas/Product';
 import { User } from './schemas/User';
 import 'dotenv/config';
 import { insertSeedData } from './seed-data';
 import { sendPasswordResetEmail } from './lib/mail';
+import { extendGraphqlSchema } from './mutations';
 
 function check(name: string) {}
 
@@ -61,7 +67,12 @@ export default withAuth(
       User,
       Product,
       ProductImage,
+      CartItem,
+      OrderItem,
+      Order,
+      Role,
     }),
+    extendGraphqlSchema,
     ui: {
       // Show the UI only for poeple who pass this test
       isAccessAllowed: ({ session }) =>
@@ -70,7 +81,7 @@ export default withAuth(
     },
     session: withItemData(statelessSessions(sessionConfig), {
       // GraphQL Query
-      User: 'id name email',
+      User: `id name email role { ${permissionsList.join(' ')} }`,
     }),
   })
 );
